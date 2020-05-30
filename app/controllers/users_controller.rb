@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       flash[:success] = "旅Lifeへようこそ！"
       redirect_to @user
     else
-      render ''new
+      render 'new'
     end
   end
 

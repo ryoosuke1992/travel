@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'faker'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta2'
@@ -43,6 +44,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3'
   gem 'rubocop-airbnb'
+  gem "factory_bot_rails", "~> 4.10.0"
 end
 
 group :development do
