@@ -18,7 +18,6 @@ RSpec.describe "永続セッション機能", type: :request do
     end
   end
 
-<<<<<<< HEAD
   it "有効なユーザーでログイン&ログアウト" do
     get login_path
     post login_path, params: { session: { email: user.email, password: user.password } }
@@ -35,7 +34,7 @@ RSpec.describe "永続セッション機能", type: :request do
     get login_path
     post login_path, params: { session: { email: "xxx@example.com", password: user.password } }
     expect(is_logged_in?).not_to be_truthy
-=======
+  end
   context "「ログインしたままにする」にチェックを入れずにログインする場合" do
     it "remember_tokenが空であることを確認" do
       # クッキーを保存してログイン
@@ -62,6 +61,5 @@ RSpec.describe "永続セッション機能", type: :request do
       expect(response).to redirect_to root_path
       expect(session[:user_id]).to eq nil
     end
->>>>>>> advanced_login
   end
 end
