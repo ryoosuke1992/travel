@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    @users = User.paginate(page: params[:page])
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -35,8 +39,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    @users = User.paginate(page: params[:page])
+  def destroy
+    @user = User.destroy
+    flash[:success] = "アカウントを削除しました"
+    redirect_to root_url
   end
 
   private
