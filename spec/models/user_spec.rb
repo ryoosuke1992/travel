@@ -44,7 +44,7 @@ RSpec.describe User, type: :model do
       expect(user.email).to eq email.downcase
     end
 
-        it "パスワードがなければ無効な状態であること" do
+    it "パスワードがなければ無効な状態であること" do
       user = build(:user, password: nil, password_confirmation: nil)
       user.valid?
       expect(user.errors[:password]).to include("を入力してください")
