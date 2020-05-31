@@ -42,7 +42,6 @@ RSpec.describe "Users", type: :system do
 
   describe "プロフィールページ" do
     context "ページレイアウト" do
-
       before do
         visit user_path(user)
       end
