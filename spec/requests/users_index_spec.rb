@@ -11,9 +11,11 @@ RSpec.describe "ユーザー一覧ページ", type: :request do
 		end
 	end
 
-	context "ログインしていないユーザーの場合" do
-		get users_path
-		expect(response).to have_http_status "302"
-		expect(response).to redirect_to login_path
-	end
+  context "ログインしていないユーザーの場合" do
+    it "ログインページへリダイレクトすること" do
+      get users_path
+      expect(response).to have_http_status "302"
+      expect(response).to redirect_to login_path
+    end
+  end
 end
