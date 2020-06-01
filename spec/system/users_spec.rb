@@ -120,6 +120,7 @@ RSpec.describe "Users", type: :system do
     context "ページレイアウト" do
       before do
         login_for_system(user)
+        create_list(:plan, 10, user: user) 
         visit user_path(user)
       end
 
@@ -131,6 +132,10 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content user.name
         expect(page).to have_content user.introduction
         expect(page).to have_content user.sex
+      end
+
+      it "ページネーションが表示される" do
+        expect(page).to have_css "div.pagination"
       end
     end
   end
