@@ -1,4 +1,4 @@
-<% provide(:title, "料理の登録") %>
+<% provide(:title, "旅行の登録") %>
 <div class="container">
   <h1>旅行登録</h1>
   <div class="row">
@@ -10,11 +10,11 @@
           <%= f.text_field :title, class: 'form-control', id: 'plan_title' %>
         </div>
         <div class = 'form-group'>
-          <%= f.label :date%>　<span class="input-unneed">※必須</span>
-          <%= f.text_field :deta, size: "60x4", class: 'form-control', id: 'plan-date' %>
+          <%= f.label :date %> 　<span class="input-unneed">※必須</span>
+          <%= f.text_field :date, class: 'form-control', id: 'plan-date' %>
         </div>
         <div class = 'form-group'>
-          <%= f.label :place%> 　<span class="input-unneed">※必須</span>
+          <%= f.label :place %> 　<span class="input-unneed">※必須</span>
           <%= f.text_field :place, class: 'form-control', id: 'plan-place' %>
         </div>
         <div class = 'form-group'>
