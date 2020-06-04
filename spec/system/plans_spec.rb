@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "Plans", type: :system do
-	let!(:user) { create(:user) }
-	let!(:plan) { create(:plan) }
+  let!(:user) { create(:user) }
+  let!(:plan) { create(:plan) }
 	
-	describe "旅行投稿ページ" do
+  describe "旅行投稿ページ" do
 		before do
 			login_for_system(user)
 			visit new_plan_path
@@ -26,6 +26,27 @@ RSpec.describe "Plans", type: :system do
         expect(page).to have_content '集合場所'
         expect(page).to have_content '集合時間'
         expect(page).to have_content '旅行内容'
+      end
+		end
+	end
+
+	describe "旅行詳細ページ" do
+		context "ページレイアウト" do
+			before do
+				login_for_system(user)
+				visit plan_path(plan)
+			end
+
+			it "正しいタイトルが表示される" do
+				expect(page).to have_title full_title("#{plan.title}")
+			end
+
+      it "旅行情報が表示される" do
+        expect(page).to have_content plan.title
+        expect(page).to have_content plan.date
+        expect(page).to have_content plan.meeting_place
+        expect(page).to have_content plan.meeting_time
+        expect(page).to have_content plan.content
       end
 		end
 	end
