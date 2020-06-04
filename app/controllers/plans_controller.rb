@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
 	before_action :logged_in_user, only: [:new, :index, :show, :edit, :update]
-	before_action :correct_user,   only: [:edit, :update]
+	before_action :current_user,   only: [:edit, :update]
 	
 	def new
 		@plan = Plan.new
@@ -33,6 +33,18 @@ class PlansController < ApplicationController
 			render 'edit'
 		end
 	end
+
+	def destroy
+    @plan = Plan.find(params[:id])
+    if current_user?(@plan.user)
+      @plan.destroy
+      flash[:success] = "料理が削除されました"
+      redirect_to request.referrer == user_url(@plan.user) ? user_url(@plan.user) : root_url
+    else
+      flash[:danger] = "他人の料理は削除できません"
+      redirect_to root_url
+    end
+  end
 	
 	private
 

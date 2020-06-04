@@ -50,4 +50,26 @@ RSpec.describe "Plans", type: :system do
       end
 		end
 	end
+
+	describe "旅行編集ページ" do
+    before do
+      login_for_system(user)
+      visit edit_plan_path(plan)
+    end
+
+    context "ページレイアウト" do
+      it "正しいタイトルが表示されること" do
+        expect(page).to have_title full_title('旅行の編集')
+      end
+
+      it "入力部分に適切なラベルが表示されること" do
+        expect(page).to have_content 'タイトル'
+        expect(page).to have_content '開催日'
+        expect(page).to have_content '旅行先'
+        expect(page).to have_content '集合場所'
+        expect(page).to have_content '集合時間'
+        expect(page).to have_content '旅行内容'
+      end
+    end
+  end
 end
