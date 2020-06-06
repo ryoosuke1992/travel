@@ -37,10 +37,6 @@ RSpec.describe "Plans", type: :system do
 				visit plan_path(plan)
 			end
 
-			it "正しいタイトルが表示される" do
-				expect(page).to have_title full_title("#{plan.title}")
-			end
-
       it "旅行情報が表示される" do
         expect(page).to have_content plan.title
         expect(page).to have_content plan.date
