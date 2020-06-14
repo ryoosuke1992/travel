@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_013038) do
+ActiveRecord::Schema.define(version: 2020_06_10_140202) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "plan_id"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 2020_06_07_013038) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "plan_id"], name: "index_favorites_on_user_id_and_plan_id", unique: true
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "plan_id"
+    t.integer "variety"
+    t.text "content"
+    t.integer "from_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "plans", force: :cascade do |t|
@@ -60,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_013038) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false, null: false
+    t.boolean "notification", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
