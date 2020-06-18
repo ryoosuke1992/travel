@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
     end
 
     it "名前が50文字以内であること" do
-      user = build(:user, name: "a"* 51)
+      user = build(:user, name: "a"*  51)
       user.valid?
       expect(user.errors[:name]).to include("は50文字以内で入力してください")
     end
@@ -44,7 +44,7 @@ RSpec.describe User, type: :model do
       expect(user.email).to eq email.downcase
     end
 
-        it "パスワードがなければ無効な状態であること" do
+    it "パスワードがなければ無効な状態であること" do
       user = build(:user, password: nil, password_confirmation: nil)
       user.valid?
       expect(user.errors[:password]).to include("を入力してください")
@@ -54,6 +54,11 @@ RSpec.describe User, type: :model do
       user = build(:user, password: "a" * 6, password_confirmation: "a" * 6)
       user.valid?
       expect(user).to be_valid
+    end
+  end
+  context "authenticated?メソッド" do
+    it "ダイジェストが存在しない場合、falseを返すこと" do
+      expect(user.authenticated?('')).to eq false
     end
   end
 end
