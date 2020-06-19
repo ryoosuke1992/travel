@@ -1,0 +1,46 @@
+<% provide(:title, "#{@plan.title}") %>
+<div class="travel-detail">
+  <div class="container">
+    <div class="travel-detail_contents">
+      <div class="row">
+        <div class="travel-detail_contents_main col-md-8">
+          <h2><%= @plan.title %></h2>
+          <div class="plan-change text-right">
+            <% if current_user.admin? || (current_user == @plan.user) %>
+              <%= link_to "削除", plan_path(@plan), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            <% end %>
+            <% if current_user == @plan.user %>
+              <%= link_to "編集", edit_plan_path(@plan), class: 'edit-plan' %>
+            <% end %>
+          </div>
+          <%= link_to((image_tag @plan.image.url), plan_path(@plan.id), class: 'plan-image') %>
+          <table>
+            <tr>
+              <th>開催日</th>
+              <td><%= @plan.date %></td>
+            </tr>
+            <tr>
+              <th>集合場所</th>
+              <td><%= @plan.meeting_place %></td>
+            </tr>
+            <tr>
+              <th>集合時間</th>
+              <td><%= @plan.meeting_time %></td>
+            </tr>
+            <tr>
+              <th>旅行内容</th>
+              <td><%= @plan.content %></td>
+            </tr>
+          </table>
+          <% @comments  = @plan.feed_comment(@plan.id) %>
+          <div class="comment">
+            <%= render "comments/feed_comments" %>
+            <%= render "comments/new" %>
+          </div>
+          <%= render 'users/favorite_form' %>
+          <%= link_to "この企画に申し込む", "#" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
