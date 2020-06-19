@@ -11,10 +11,6 @@ body {
   padding-top: 60px;
 }
 
-img{
-  width: 100%;
-}
-
 section {
   overflow: auto;
 }
@@ -202,6 +198,10 @@ span.picture {
 .travel-detail {
   padding-top:40px;
   padding-bottom:40px;
+
+  img{
+    width: 100%;
+  }
 
   h2 {
     padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
