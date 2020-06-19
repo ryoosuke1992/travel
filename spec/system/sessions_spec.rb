@@ -8,7 +8,7 @@ RSpec.describe "Sessions", type: :system do
   end
 
   describe "ログインページ" do
-    context "ページレイアウト"do
+    context "ページレイアウト" do
       it "ログインの文字列が存在することを確認" do
         expect(page).to have_content "ログイン"
       end
