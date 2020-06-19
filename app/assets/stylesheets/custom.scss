@@ -239,3 +239,20 @@ span.picture {
     }  
   }
 }
+
+.like-btn-unlike {
+  color: red;
+}
+.like-btn-like {
+  color: grey;
+}
+
+a.like, a.unlike {
+  text-decoration: none;
+}
+
+.favorite-image{
+  img{
+    width: 100%;
+  }
+}
