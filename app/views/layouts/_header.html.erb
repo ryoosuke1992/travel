@@ -1,10 +1,14 @@
-<header class="navbar navbar-fixed-top">
-  <div class="container">
-    <%= link_to(image_tag("header_logo.jpg", :alt => ""), root_url, id: 'logo') %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-          <li><%= link_to 'ユーザー一覧', users_path %></li>
+<!-- <div class="page-inner"> -->
+	<nav class="gtco-nav" role="navigation">
+		<div class="gtco-container">	
+			<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<div id="gtco-logo"><a href="index.html">Traveler <em>.</em></a></div>
+				</div>
+				<div class="col-xs-8 text-right menu-1">
+           <ul>
+            <% if logged_in? %>
+            <li><%= link_to 'ユーザー一覧', users_path %></li>
           <li><%= link_to '旅行投稿', new_plan_path %></li>
           <li><%= link_to 'お気に入り', favorites_path %></li>
                     <% if current_user.notification == true %>
@@ -23,12 +27,13 @@
               <li class="divider"></li>
               <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
             </ul>
-          </>
+          </li>
         <% else %>
           <li><%= link_to 'ユーザー登録(無料)', signup_path %></li>
           <li><%= link_to 'ログイン', login_path %></li>
         <% end %>
       </ul>
-    </nav>
-  </div>
-</header>
+				</div>
+			</div>
+		</div>
+	</nav>
