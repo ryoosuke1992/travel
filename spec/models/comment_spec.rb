@@ -13,7 +13,7 @@ RSpec.describe Comment, type: :model do
       expect(comment).not_to be_valid
     end
 
-    it "dish_idがなければ無効な状態であること" do
+    it "plan_idがなければ無効な状態であること" do
       comment = build(:comment, plan_id: nil)
       expect(comment).not_to be_valid
     end
