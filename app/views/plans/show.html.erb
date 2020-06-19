@@ -32,6 +32,11 @@
               <td><%= @plan.content %></td>
             </tr>
           </table>
+          <% @comments  = @plan.feed_comment(@plan.id) %>
+          <div class="comment">
+            <%= render "comments/feed_comments" %>
+            <%= render "comments/new" %>
+          </div>
           <%= render 'users/favorite_form' %>
           <%= link_to "この企画に申し込む", "#" %>
         </div>
