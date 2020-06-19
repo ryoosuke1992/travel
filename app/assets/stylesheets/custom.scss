@@ -1,14 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// ミックスイン
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
 
-// 全ページ共通
 body {
   padding-top: 60px;
 }
@@ -151,3 +149,88 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
  }
+
+ .plans {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+ }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .description {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+.travel-detail {
+  padding-top:40px;
+  padding-bottom:40px;
+
+  h2 {
+    padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: #f4f4f4;/*背景色*/
+    border-left: solid 5px #7db4e6;/*左線*/
+    border-bottom: solid 3px #d7d7d7;/*下線*/
+    font-size: 26px;   
+  }
+
+  table{
+    width: 100%;
+    tr {
+      border-bottom: solid 2px white;
+      &:last-child {
+        border-bottom: none;
+     }
+    }
+    
+    th {
+      position: relative;
+      width: 30%;
+      background-color: #52c2d0;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+    
+    td {
+      width: 50%;
+      text-align: center;
+      background-color: #eee;
+      padding: 20px;
+    }  
+  }
+}

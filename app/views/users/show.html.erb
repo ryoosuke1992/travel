@@ -1,5 +1,5 @@
 <% provide(:title, "プロフィール") %> 
-<div class="container"></div>
+<div class="container">
   <h3 class="title-profile">プロフィール</h3>
   <div class="row">
     <div class="col-md-4">
@@ -15,5 +15,25 @@
     <% if current_user == @user %>
       <div class="account-edit"><%= link_to "プロフィール編集", edit_user_path(@user) %></div>
     <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <% if @user.plans.any? %>
+        <h3>旅行の計画 (<%= @user.plans.count %>)</h3>
+        <ol class="plans">
+          <% @user.plans.each do |plan| %>
+          <div class="col-md-3">
+          <li id="plan-<%= plan.id %>">
+            <%= link_to gravatar_for(plan.user, size: 50), plan.user %>
+            <span class="name"><%= link_to plan.title, "#" %></span>
+            <span class="name"><%= link_to plan.date, "#" %></span>
+            <span class="name"><%= link_to plan.meeting_place, "#" %></span>
+          </li>
+          </div>
+          <% end %>
+          <%= will_paginate @plans %>
+        </ol>
+      <% end %>
+    </div>
   </div>
 </div>
