@@ -29,6 +29,10 @@
           <%= f.label :content %>　<span class="input-unneed">※必須</span>
           <%= f.text_area :content, class: 'form-control', id: 'plan-content' %>
         </div>
+        <span class="picture">
+          <%= f.label :image %>　<span class="input-unneed">※必須</span>
+          <%= f.file_field :image, accept: 'image/jpeg,image/png', class: 'form-control', id: 'plan_picture' %>
+        </span>
         <%= f.submit nil, class: 'btn btn-primary' %>
       <% end %>
     </div>

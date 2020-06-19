@@ -13,6 +13,7 @@
               <%= link_to "編集", edit_plan_path(@plan), class: 'edit-plan' %>
             <% end %>
           </div>
+          <%= link_to((image_tag @plan.image.url), plan_path(@plan.id), class: 'plan-image') %>
           <table>
             <tr>
               <th>開催日</th>

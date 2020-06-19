@@ -50,7 +50,7 @@ class PlansController < ApplicationController
 
 	 def plan_params
 		params.require(:plan).permit(:title, :date, :place, :meeting_place,
-		:meeting_time, :content)
+		:meeting_time, :content,:image)
 	 end
 
 end
