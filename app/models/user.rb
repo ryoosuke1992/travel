@@ -9,8 +9,10 @@ class User < ApplicationRecord
                                    dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :favorites, dependent: :destroy
-  has_many :notifications, dependent: :destroy 
-  attr_accessor :remember_token	
+  has_many :notifications, dependent: :destroy
+  has_many :plans, through: :participants
+  has_many :participants
+  attr_accessor :remember_token
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
