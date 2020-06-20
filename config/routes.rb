@@ -10,7 +10,9 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :plans
+  resources :plans do
+    resources :participants, only: :create
+  end
   resources :relationships, only: [:create, :destroy]
   get :favorites, to: 'favorites#index'
   post   "favorites/:plan_id/create"  => "favorites#create"
