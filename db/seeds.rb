@@ -14,7 +14,7 @@ User.create!(name:  "山田 太郎",
               password_confirmation: password)
 end
 
-10.times do |n|
+11.times do |n|
   title = Faker::Book.title
   Plan.create!(    
   title: title,

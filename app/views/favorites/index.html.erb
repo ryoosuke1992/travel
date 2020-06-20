@@ -1,34 +1,41 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3>お気に入りの旅行企画 (<%= @favorites.count %>)</h3>
     </div>
   </div>
   <% if @favorites.present? %>
     <% @favorites.each do |favorite| %>
-		  <div class="row">
-			  <div class="col-md-4 favorite-image">
-			    <%= link_to((image_tag favorite.plan.image.url), plan_path(favorite.plan.id), class: 'plan-image') %>
-			  </div>
-				<div class="col-md-8">
-				  <div class="favorite_plan-title">
-		        <%= favorite.plan.title %>				
-					</div>
-          <div class="favorite_plan-date">
-		        <%= favorite.plan.date %>			
-					</div>
-          <div class="favorite_plan-meeting-place">
-					  <%= favorite.plan.meeting_place %>	
-					</div>
-					<div class="favorite_plan-meeting-place">
-            <%= favorite.plan.meeting_time %>
-					</div>
-			    <div class="planner">
-			      <p>企画者:<%= link_to favorite.plan.user.name, user_path(favorite.plan.user) %></p>
-			    </div>
-			</div>
-				</div>
-			</div>
-		<% end %>
+	  <div class="row">
+	    <div class="col-md-4 favorite-image">
+		  <%= link_to((image_tag favorite.plan.image.url), plan_path(favorite.plan.id), class: 'plan-image') %>
+		</div>
+		<div class="col-md-8">
+		<div class= "travel-detail">
+		<table>
+		  <tr>
+		    <th>旅行プラン名</th>
+		    <td><%= link_to favorite.plan.title, plan_path(favorite.plan) %></td>
+	      </tr>
+		  <tr>
+		    <th>開催日</th>
+		    <td><%= favorite.plan.date %></td>
+		  </tr>
+		  <tr>
+		    <th>集合場所</th>
+		    <td><%= favorite.plan.meeting_place %></td>
+		  </tr>
+		  <tr>
+		    <th>集合時間</th>
+		    <td><%= favorite.plan.meeting_time %></td>
+		  </tr>
+		  <tr>
+		    <th>企画者</th>
+		    <td><%= link_to favorite.plan.user.name, user_path(favorite.plan.user) %></td>
+	      </tr>
+	    </table>
+	  </div>
+	  </div>
+	  <hr>
+    <% end %>
   <% end %>
 </div>

@@ -1,13 +1,9 @@
 <% provide(:title, "プロフィール") %> 
 <div class="container">
-  <h3 class="title-profile">プロフィール</h3>
-  <div class="row">
-    <div class="col-md-4">
+  <div class="text-center margin-top-50">
       <div class="user-picture-box">
       <%= gravatar_for @user, size:120, cl: "gravatar user-picture" %>
     </div>
-  </div>
-  <div class="col-md-8">
     <h4 div class="show-user-name"><%= @user.name %></h4><%= @user.sex %>
     <div>
       <%= @user.introduction %>
@@ -16,25 +12,36 @@
     <% if current_user == @user %>
       <div class="account-edit"><%= link_to "プロフィール編集", edit_user_path(@user) %></div>
     <% end %>
-    <%= render 'follow_form' if logged_in? %> 
+    <%= render 'follow_form' if logged_in? %>
+  </div>
   </div>
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
       <% if @user.plans.any? %>
-        <h3>旅行の計画 (<%= @user.plans.count %>)</h3>
-        <ol class="plans">
-          <% @user.plans.each do |plan| %>
-          <div class="col-md-3">
-          <li id="plan-<%= plan.id %>">
-            <%= link_to gravatar_for(plan.user, size: 50), plan.user %>
-            <span class="name"><%= link_to plan.title, "#" %></span>
-            <span class="name"><%= link_to plan.date, "#" %></span>
-            <span class="name"><%= link_to plan.meeting_place, "#" %></span>
-          </li>
+        <div class="gtco-section">
+        <div class="gtco-container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+              <h2><%= @user.name %>さんの旅行プラン(<%= @user.plans.count %>)</h2>
+            </div>
           </div>
-          <% end %>
-          <%= will_paginate @plans %>
-        </ol>
+          <div class="row">
+            <% @plans.each do|plan| %>
+              <div class="col-lg-4 col-md-4 col-sm-6 fh5co-card-item image-popup">
+                <figure>
+                  <div class="overlay"><i class="ti-plus"></i></div>
+                  <%= link_to((image_tag plan.image.url), plan_path(plan)) %>
+                </figure>
+                <div class="fh5co-text">
+                  <h2><%= plan.title %></h2>
+                  <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
+                  <%= link_to "詳細ページ" , plan_path(plan), class: "btn btn-primary" %>
+                </div>
+          </div>
+        <% end %>
+        </div>
+        <%= will_paginate @plans %>
+      </div>
       <% end %>
     </div>
   </div>

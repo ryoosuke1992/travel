@@ -1,4 +1,185 @@
-<center>
-  <h1>さぁ、みんなで世界中を旅しよう！</h1>
-  <p>一人で怖くてもみんなで行けば怖くない！</p>
-</center>
+<header id="gtco-header" class="gtco-cover gtco-cover-md" style="background-image: url(images/travel6.jpg)" role="banner">
+		<div class="overlay"></div>
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-left">
+					<div class="row row-mt-15em">
+						<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
+							<h1>さぁ、みんなで<br>世界中を旅しよう</h1>
+						</div>
+						<div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
+							<div class="form-wrap">
+								<div class="tab">
+									<div class="tab-content">
+										<div class="tab-content-inner active" data-content="signup">
+											<h3>Book Your Trip</h3>
+											<form action="#">
+												<div class="row form-group">
+													<div class="col-md-12">
+														<label for="fullname">Your Name</label>
+														<input type="text" id="fullname" class="form-control">
+													</div>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-12">
+														<label for="activities">Activities</label>
+														<select name="#" id="activities" class="form-control">
+															<option value="">Activities</option>
+															<option value="">Hiking</option>
+															<option value="">Caving</option>
+															<option value="">Swimming</option>
+														</select>
+													</div>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-12">
+														<label for="destination">Destination</label>
+														<select name="#" id="destination" class="form-control">
+															<option value="">Philippines</option>
+															<option value="">USA</option>
+															<option value="">Australia</option>
+															<option value="">Singapore</option>
+														</select>
+													</div>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-12">
+														<label for="date-start">Date Travel</label>
+														<input type="text" id="date-start" class="form-control">
+													</div>
+												</div>
+
+												<div class="row form-group">
+													<div class="col-md-12">
+														<input type="search" class="btn btn-primary btn-block" value="Search">
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="gtco-section">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+					<h2>Plans</h2>
+				</div>
+			</div>
+			<div class="row">
+        <% @plans.each do|plan| %>
+          <div class="col-lg-4 col-md-4 col-sm-6 fh5co-card-item image-popup">
+						<figure>
+							<div class="overlay"><i class="ti-plus"></i></div>
+							<%= link_to((image_tag plan.image.url), plan_path(plan)) %>
+						</figure>
+						<div class="fh5co-text">
+							<h2><%= plan.title %></h2>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
+              <%= link_to "詳細ページ" , plan_path(plan), class: "btn btn-primary" %>
+            </div>
+		  </div>
+		<% end %>
+	  </div>
+	  <%= will_paginate @plans %>
+	</div>
+  </div>
+
+	<div id="gtco-features">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
+					<h2>How To Use</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-sm-6">
+					<div class="feature-center animate-box" data-animate-effect="fadeIn">
+						<span class="icon">
+							<i>1</i>
+						</span>
+						<h3>新規登録</h3>
+						<p>まずは新規登録からアカウントの作成をしましょう。アカウントを作成することで旅行の企画をしたり、参加することできるようになります。</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="feature-center animate-box" data-animate-effect="fadeIn">
+						<span class="icon">
+							<i>2</i>
+						</span>
+						<h3>旅行の企画・参加</h3>
+						<p>自分だけのオリジナルの旅行を企画したり、誰かの企画した旅行に自由に参加できます。一人で海外に行くのが怖くても、誰かとなら安心です。</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="feature-center animate-box" data-animate-effect="fadeIn">
+						<span class="icon">
+							<i>3</i>
+						</span>
+						<h3>旅行を全力で楽しむ</h3>
+						<p>参加する旅行が決まれば、後は開催日を待つだけです。当日は安全に配慮しながら全力で楽しみましょう。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="gtco-cover gtco-cover-sm" style="background-image: url(images/travel.jpg)"  data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="gtco-container text-center">
+			<div class="display-t">
+				<div class="display-tc">
+					<h2> Once a year, go someplace you’ve never been before.<br>
+					年に一度は、これまで行ったことのないどこかに行きなさい。 ダライ・ラマ</h1>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<div id="gtco-counter" class="gtco-section">
+		<div class="gtco-container">
+
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
+					<h2>Services</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+					<div class="feature-center">
+						<span class="counter js-counter" data-from="0" data-to="196" data-speed="5000" data-refresh-interval="50"><%= @users.count %></span>
+						<span class="counter-label"> ユーザー数</span>
+
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+					<div class="feature-center">
+						<span class="counter js-counter" data-from="0" data-to="97" data-speed="5000" data-refresh-interval="50"><%= @plans.count %></span>
+						<span class="counter-label">開催中の旅行</span>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+					<div class="feature-center">
+						<span class="counter js-counter" data-from="0" data-to="12402" data-speed="5000" data-refresh-interval="50">112</span>
+						<span class="counter-label">これまでの開催実績</span>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+					<div class="feature-center">
+						<span class="counter js-counter" data-from="0" data-to="12202" data-speed="5000" data-refresh-interval="50"> 98%</span>
+						<span class="counter-label">ユーザー満足度</span>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
