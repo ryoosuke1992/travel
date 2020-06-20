@@ -158,7 +158,7 @@ RSpec.describe "Users", type: :system do
         login_for_system(user)
       end
 
-      it "料理のお気に入り登録/解除ができること" do
+      it "企画のお気に入り登録/解除ができること" do
         expect(user.favorite?(plan)).to be_falsey
         user.favorite(plan)
         expect(user.favorite?(plan)).to be_truthy

@@ -1,4 +1,4 @@
-RSpec.describe "料理編集", type: :request do
+RSpec.describe "企画編集", type: :request do
   let!(:user) { create(:user) }
 	let!(:plan) { create(:plan, user: user) }
 	let(:image_path) { File.join(Rails.root, 'spec/fixtures/travel.jpg') }

@@ -13,14 +13,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @plans = @user.plans.paginate(page: params[:page], per_page: 5) 
+    @plans = @user.plans.paginate(page: params[:page], per_page: 9) 
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "旅Lifeへようこそ！"
+      flash[:success] = "Travelerにようこそ！"
       redirect_to @user
     else
       render 'new'

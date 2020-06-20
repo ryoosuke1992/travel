@@ -180,7 +180,6 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .gtco-nav {
-	position: absolute;
 	top: 0;
 	left: 0;
 	margin: 0;
@@ -188,6 +187,7 @@ h1, h2, h3, h4, h5, h6, figure {
 	width: 100%;
 	padding: 20px 0;
 	z-index: 1001;
+	background: #262626;
 	@media screen and (max-width: $screen-sm) {
 		padding: 20px 0;
 	}
@@ -593,6 +593,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			height: 500px;
 			display: table;
 			width: 100%;
+			background-image: url(app/images/travel.jpg);
 			@media screen and (max-width: $screen-sm) {
 				padding: 3em 0;
 				height: inherit!important;
@@ -877,6 +878,9 @@ form {
 	}
 	p, h3 {
 		margin-bottom: 30px;
+	}
+	p {
+		text-align: left;
 	}
 	h3 {
 		font-size: 22px;
