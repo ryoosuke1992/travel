@@ -8,6 +8,7 @@ class PlansController < ApplicationController
 
 	def show
 		@plan = Plan.find(params[:id])
+		@random_plans = Plan.order("RANDOM()").limit(5)
 		@comment = Comment.new
 	end
 

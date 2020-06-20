@@ -202,7 +202,7 @@ span.picture {
     background: #f4f4f4;/*背景色*/
     border-left: solid 5px #7db4e6;/*左線*/
     border-bottom: solid 3px #d7d7d7;/*下線*/
-    font-size: 26px;   
+    font-size: 26px;
     margin-bottom: 0;
     margin-top: 0;
   }
@@ -215,7 +215,7 @@ span.picture {
         border-bottom: none;
      }
     }
-    
+
     th {
       position: relative;
       width: 30%;
@@ -224,21 +224,32 @@ span.picture {
       text-align: center;
       padding: 10px 0;
     }
-    
+
     td {
       width: 50%;
       text-align: center;
       background-color: #eee;
       padding: 20px;
-    }  
+    }
+  }
+}
+
+.travel-detail_contents_sub{
+  margin-top: 30px;
+  h3{
+    font-size: 20px;
   }
 }
 
 .like-btn-unlike {
   color: red;
+  font-size: 16px;
+  margin-top: 10px;
 }
 .like-btn-like {
   color: grey;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 a.like, a.unlike {
@@ -259,6 +270,7 @@ a.like, a.unlike {
 
 .comments {
   list-style: none;
+  padding-left: 0;
   li {
     font-size: 14px;
     padding: 10px 0;
