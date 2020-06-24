@@ -50,7 +50,7 @@ RSpec.describe "Users", type: :system do
         fill_in "パスワード", with: "password"
         fill_in "パスワード(確認)", with: "password"
         click_button "登録する"
-        expect(page).to have_content "旅Lifeへようこそ！"
+        expect(page).to have_content "Travelerにようこそ！"
       end
 
       it "無効なユーザーでユーザー登録を行うとユーザー登録失敗のフラッシュが表示されること" do
@@ -109,13 +109,6 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content 'メールアドレスは不正な値です'
       expect(user.reload.email).not_to eq ""
     end
-    context "アカウント削除処理", js: true do
-      it "正しく削除できること" do
-        click_link "アカウントを削除する"
-        page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content "自分のアカウントを削除しました"
-      end
-    end
   end
 
   describe "プロフィールページ" do
@@ -134,10 +127,6 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content user.name
         expect(page).to have_content user.introduction
         expect(page).to have_content user.sex
-      end
-
-      it "ページネーションが表示される" do
-        expect(page).to have_css "div.pagination"
       end
     end
 

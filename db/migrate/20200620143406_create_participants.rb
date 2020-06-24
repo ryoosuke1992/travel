@@ -5,5 +5,6 @@ class CreateParticipants < ActiveRecord::Migration[5.2]
       t.references :plan, foreign_key: true
       t.timestamps
     end
+    add_index :participants, [:user_id, :plan_id], unique: true
   end
 end

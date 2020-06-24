@@ -1,11 +1,22 @@
 class ParticipantsController < ApplicationController
-    def create
-      @plan = Plan.find(params[:plan_id])
-      if
-        Participant.create(user_id: current_user.id, plan_id: @plan.id)
-        redirect_to plans_path, notice: '旅行の申し込みが完了しました'
-      else
-        render 'show'
-      end
+  before_action :logged_in_user
+
+  def create
+    @plan = Plan.find(params[:plan_id])
+    @user = @plan.user
+    current_user.participant(@plan)
+    respond_to do |format|
+      format.html { redirect_to request.referrer || root_url }
+      format.js
     end
   end
+
+  def destroy
+    @plan = Plan.find(params[:plan_id])
+    Participant.find_by(plan_id: @plan.id).destroy
+    respond_to do |format|
+      format.html { redirect_to request.referrer || root_url }
+      format.js
+    end
+  end
+end

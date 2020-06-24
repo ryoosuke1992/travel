@@ -36,12 +36,4 @@ RSpec.describe "ユーザーの削除", type: :request do
       expect(response).to redirect_to root_path
     end
   end
-  context "旅行が紐づくユーザーを削除した場合" do
-    it "ユーザーと同時に紐づく旅行も削除される" do
-      login_for_request(user)
-      expect {
-        delete user_path(user)
-      }.to change(Plan, :count).by(-1)
-    end
-  end
 end

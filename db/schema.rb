@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_06_20_143406) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["plan_id"], name: "index_participants_on_plan_id"
+    t.index ["user_id", "plan_id"], name: "index_participants_on_user_id_and_plan_id", unique: true
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
 

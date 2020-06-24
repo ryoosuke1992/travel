@@ -10,8 +10,8 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :favorites, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :participants, dependent: :destroy
   has_many :plans, through: :participants
-  has_many :participants
   attr_accessor :remember_token
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }
@@ -22,7 +22,7 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-  
+
   class << self
     def digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -75,6 +75,18 @@ class User < ApplicationRecord
 
   def favorite?(plan)
     !Favorite.find_by(user_id: id, plan_id: plan.id).nil?
+  end
+
+  def participant(plan)
+    Participant.create!(user_id: id, plan_id: plan.id)
+  end
+
+  def unparticipant(plan)
+    Participant.find_by(user_id: id, plan_id: plan.id).destroy
+  end
+
+  def participant?(plan)
+    !Participant.find_by(user_id: id, plan_id: plan.id).nil?
   end
 
   private
