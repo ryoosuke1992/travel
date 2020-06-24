@@ -1,0 +1,7 @@
+<%= link_to "/participants/#{@plan.id}/create",
+            method: :post,
+            class: 'participant btn btn-lg btn-info',
+            data: { confirm: "本当に申し込みますか？" },
+            remote: true do %>
+参加する
+<% end %>

@@ -1,0 +1,7 @@
+<%= link_to "/participants/#{@plan.id}/destroy",
+            method: :delete,
+            class: 'unparticipant btn btn-lg btn-danger',
+            data: { confirm: "本当に参加をやめますか？" },
+            remote: true do %>
+参加をやめる
+<% end %>

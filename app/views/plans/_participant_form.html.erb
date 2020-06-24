@@ -1,0 +1,7 @@
+<div id="participant-<%= @plan.id %>">
+  <% if !current_user.nil? && current_user.participant?(@plan) %>
+    <%= render 'plans/unparticipant' %>
+  <% else %>
+    <%= render 'plans/participant' %>
+  <% end %>
+</div>
