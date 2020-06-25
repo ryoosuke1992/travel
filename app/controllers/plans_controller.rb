@@ -2,6 +2,11 @@ class PlansController < ApplicationController
   before_action :logged_in_user, only: [:new,  :show, :edit, :update]
   before_action :current_user,   only: [:edit, :update]
 
+  def index
+	@search = Plan.ransack(params[:q])
+    @result = @search.result.order(created_at: :desc).paginate(page: params[:page], per_page: 6) 
+  end
+
   def new
     @plan = Plan.new
   end

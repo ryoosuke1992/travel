@@ -1,0 +1,6 @@
+<%= search_form_for @search  do |f| %>
+  <div class="form-group">
+    <%= f.search_field :title_cont, placeholder: "行きたい国名で検索", class: 'form-control font-awesome' %>
+  </div>
+  <div class="actions"><%= f.submit "Search", class: "btn btn-lg btn-primary" %></div>
+<% end %>
