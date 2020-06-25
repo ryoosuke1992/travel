@@ -22,11 +22,11 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-	@plan = Plan.find(params[:plan_id])
-	current_user.favorites.find_by(plan_id: @plan.id).destroy
-	respond_to do |format|
-		format.html { redirect_to request.referrer || root_url }
-		format.js
-	end
+	  @plan = Plan.find(params[:plan_id])
+	  current_user.favorites.find_by(plan_id: @plan.id).destroy
+	  respond_to do |format|
+		  format.html { redirect_to request.referrer || root_url }
+		  format.js
+	  end
   end
 end
