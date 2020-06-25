@@ -1,0 +1,24 @@
+<h2>検索結果</h2>
+<% if @result.present? %>
+  <div class="container">
+    <% @result.each do|plan| %>
+      <div class="col-lg-4 col-md-4 col-sm-6 fh5co-card-item image-popup">
+        <figure>
+          <div class="overlay"><i class="ti-plus"></i></div>
+          <%= link_to((image_tag plan.image.url), plan_path(plan)) %>
+        </figure>
+        <div class="fh5co-text">
+          <h2><%= plan.title %></h2>
+          <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
+          <%= link_to "詳細ページ" , plan_path(plan), class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= will_paginate @result %>
+<% else%>
+  <div class="text-center">
+    <p>検索結果はヒットしませんでした。</p>
+    <%= link_to "ホームに戻る" , root_path %>
+  </div>
+<% end %>

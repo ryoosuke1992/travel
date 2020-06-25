@@ -4,14 +4,11 @@
 	  <div class="row">
 	    <div class="col-md-4 favorite-image">
 		  <%= link_to((image_tag favorite.plan.image.url), plan_path(favorite.plan.id), class: 'plan-image') %>
+		  <h2><%= link_to favorite.plan.title, plan_path(favorite.plan) %></h2>
 		</div>
 		<div class="col-md-8">
 		<div class= "travel-detail">
 		<table>
-		  <tr>
-		    <th>旅行プラン名</th>
-		    <td><%= link_to favorite.plan.title, plan_path(favorite.plan) %></td>
-	      </tr>
 		  <tr>
 		    <th>開催日</th>
 		    <td><%= favorite.plan.date %></td>
