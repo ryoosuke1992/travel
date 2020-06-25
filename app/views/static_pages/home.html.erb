@@ -1,3 +1,6 @@
+<% unless logged_in? %>
+<%= render 'shared/recruit_login' %>
+<% end %>
 <header id="gtco-header" class="gtco-cover gtco-cover-md" style="background-image: url(images/travel6.jpg)" role="banner">
 		<div class="overlay"></div>
 		<div class="gtco-container">
@@ -24,7 +27,6 @@
 			</div>
 		</div>
 	</header>
-
 	<div class="gtco-section">
 		<div class="gtco-container">
 			<div class="row">
