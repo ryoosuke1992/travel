@@ -19,7 +19,8 @@ class PlansController < ApplicationController
 
   def create
 	@plan = Plan.create(plan_params)
-    if @plan.save
+	if @plan.save
+	  Participant.create(user_id: current_user.id, plan_id: @plan.id)
       flash[:success] = "新規旅行が投稿されました"
       redirect_to @plan
     else
