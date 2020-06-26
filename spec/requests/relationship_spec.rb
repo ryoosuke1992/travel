@@ -12,9 +12,9 @@ RSpec.describe "ユーザーフォロー機能", type: :request do
     it "followersページへ飛ぶとログインページへリダイレクトすること" do
       get followers_user_path(user)
       expect(response).to redirect_to login_path
-		end
-		
-		it "createアクションは実行できず、ログインページへリダイレクトすること" do
+    end
+
+    it "createアクションは実行できず、ログインページへリダイレクトすること" do
       expect {
         post relationships_path
       }.not_to change(Relationship, :count)

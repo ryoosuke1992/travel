@@ -1,16 +1,16 @@
 require "rails_helper"
 
 RSpec.describe "ユーザー一覧ページ", type: :request do
-	let!(:user) { create(:user) }
-	let!(:admin_user) { create(:user, :admin) } 
-	
-	context "認可されたユーザーの場合" do
-		it "正常に表示されること" do
-			login_for_request(user)
-			get users_path
-			expect(response).to render_template("users/index")
-		end
-	end
+  let!(:user) { create(:user) }
+  let!(:admin_user) { create(:user, :admin) }
+
+  context "認可されたユーザーの場合" do
+    it "正常に表示されること" do
+      login_for_request(user)
+      get users_path
+      expect(response).to render_template("users/index")
+    end
+  end
 
   context "ログインしていないユーザーの場合" do
     it "ログインページへリダイレクトすること" do
