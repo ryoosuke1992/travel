@@ -33,6 +33,10 @@
           <%= f.label :image %>　<span class="input-need">※必須</span>
           <%= f.file_field :image, accept: 'image/jpeg,image/png', class: 'form-control', id: 'plan_image' %>
         </span>
+        <div class = 'form-group'>
+          <%= f.label :plan_comment %> 　<span class="input-need">※必須</span>
+          <%= f.text_field :plan_comment, class: 'form-control', id: 'plan-comment' %>
+        </div>
         <%= f.submit nil, class: 'btn btn-primary' %>
       <% end %>
     </div>

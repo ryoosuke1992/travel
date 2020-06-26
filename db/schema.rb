@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_06_20_143406) do
     t.string "meeting_place"
     t.string "meeting_time"
     t.text "content"
+    t.text "plan_comment"
     t.string "image"
     t.integer "user_id"
     t.datetime "created_at", null: false
