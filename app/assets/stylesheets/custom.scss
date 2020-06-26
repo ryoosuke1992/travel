@@ -312,10 +312,74 @@ li.new_notification > a > span {
   margin-top: 50px;
 }
 
+.margin-top-150 {
+  margin-top: 150px;
+}
+
+.margin-top-200 {
+  margin-top: 200px;
+}
+
 img.gravatar {
   border-radius: 50%;
 }
 
 .input-need {
   color: red;
+}
+
+.balloon5 {
+  width: 100%;
+  margin: 1.5em 0;
+  overflow: hidden;
+}
+
+.balloon5 .faceicon {
+  float: left;
+  margin-right: -90px;
+  width: 80px;
+}
+
+.balloon5 .faceicon img{
+  width: 100%;
+  height: auto;
+  border: solid 3px #d7ebfe;
+  border-radius: 50%;
+}
+
+.balloon5 .chatting {
+  width: 100%;
+}
+
+.says {
+  display: inline-block;
+  position: relative; 
+  margin: 5px 0 0 105px;
+  padding: 17px 13px;
+  border-radius: 12px;
+  background: #d7ebfe;
+}
+
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  left: -24px;
+  border: 12px solid transparent;
+  border-right: 12px solid #d7ebfe;
+}
+
+.says p {
+  margin: 0;
+  padding: 0;
+}
+
+.planner-voice{
+  margin-left: 10px;
+}
+
+.row-eq-height{
+  display: flex;
+  flex-wrap: wrap;
 }

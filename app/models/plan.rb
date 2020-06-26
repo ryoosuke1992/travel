@@ -5,6 +5,7 @@ class Plan < ApplicationRecord
 	has_many :favorites, dependent: :destroy
 	has_many :comments, dependent: :destroy
 	validates :title, :date, :place, :meeting_place, :meeting_time, :content, presence: true
+	validates :plan_comment, presence: true, length: { maximum: 120 }
 	mount_uploader :image, ImageUploader
 
 	def feed_comment(plan_id)

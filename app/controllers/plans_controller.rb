@@ -14,7 +14,8 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     @random_plans = Plan.order("RANDOM()").limit(5)
-    @comment = Comment.new
+	  @comment = Comment.new
+	  @user = @plan.user
   end
 
   def create
@@ -57,6 +58,6 @@ class PlansController < ApplicationController
 	private
 
 	 def plan_params
-		params.require(:plan).permit(:title, :date, :place, :meeting_place, :meeting_time, :content, :image).merge(user_id: current_user.id)
+		params.require(:plan).permit(:title, :date, :place, :meeting_place, :meeting_time, :content, :image, :plan_comment).merge(user_id: current_user.id)
 	end
 end

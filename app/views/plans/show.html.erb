@@ -32,6 +32,18 @@
               <td><%= @plan.content %></td>
             </tr>
           </table>
+          <!--吹き出しはじまり-->
+          <div class="balloon5">
+  <div class="faceicon">
+      <%= gravatar_for @user, size:50, cl: "gravatar user-picture" %>
+      <span class="planner-voice"><%= link_to @user.name, user_path(@user) %></span>
+  </div>
+  <div class="chatting">
+    <div class="says">
+      <p><%= @plan.plan_comment %></p>
+    </div>
+  </div>
+</div>
           <%= render 'users/favorite_form' %>
           <% @comments  = @plan.feed_comment(@plan.id) %>
           <div class="comment">
@@ -44,7 +56,6 @@
         </div>
         <div class="travel-detail_contents_sub col-md-4">
         <h2>おすすめの旅行企画</h2>
-        <hr>
         <% @random_plans.each do |plan| %>
           <h3><%= plan.title %></h3>
           <%= link_to((image_tag plan.image.url), plan_path(plan.id), class: 'plan-image') %>

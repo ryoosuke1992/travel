@@ -23,6 +23,7 @@ end
   meeting_place: "ハワイ空港",
   meeting_time: "13:00",
   content: "ハワイの綺麗な海を一緒に眺めましょう！",
+  plan_comment: "ハワイの綺麗な海を一緒に眺めましょう！",
   user_id: 1)
 end
 
