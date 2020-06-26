@@ -5,6 +5,7 @@ FactoryBot.define do
     place { "ハワイ" }
     meeting_place { "ハワイ空港" }
     meeting_time { "13:00" }
+    plan_comment { "ハワイの綺麗な海を一緒に眺めましょう！" }
     content { "ハワイの綺麗な海を一緒に眺めましょう！" }
     association :user
   end

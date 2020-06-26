@@ -1,7 +1,7 @@
 <% provide(:title, "プロフィール") %> 
 <div class="container">
   <div class="text-center margin-top-50">
-      <div class="user-picture-box">
+    <div class="user-picture-box">
       <%= gravatar_for @user, size:120, cl: "gravatar user-picture" %>
     </div>
     <h4 div class="show-user-name"><%= @user.name %></h4><%= @user.sex %>
@@ -14,11 +14,11 @@
     <% end %>
     <%= render 'follow_form' if logged_in? %>
   </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <% if @user.plans.any? %>
-        <div class="gtco-section">
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <% if @user.plans.any? %>
+      <div class="gtco-section">
         <div class="gtco-container">
           <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
@@ -36,14 +36,14 @@
                   <h2><%= plan.title %></h2>
                   <%= link_to "詳細ページ" , plan_path(plan), class: "btn btn-primary" %>
                 </div>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-        </div>
-        <div class="pagination">
-          <%= will_paginate @plans %>
+          <div class="pagination">
+            <%= will_paginate @plans %>
+          </div>
         </div>
       </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
