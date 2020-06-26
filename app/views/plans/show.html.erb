@@ -56,7 +56,6 @@
         </div>
         <div class="travel-detail_contents_sub col-md-4">
         <h2>おすすめの旅行企画</h2>
-        <hr>
         <% @random_plans.each do |plan| %>
           <h3><%= plan.title %></h3>
           <%= link_to((image_tag plan.image.url), plan_path(plan.id), class: 'plan-image') %>
