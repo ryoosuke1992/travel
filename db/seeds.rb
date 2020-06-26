@@ -14,19 +14,6 @@ User.create!(name:  "山田 太郎",
               password_confirmation: password)
 end
 
-11.times do |n|
-  title = Faker::Book.title
-  Plan.create!(    
-  title: title,
-  date: "2021年4月1日",
-  place: "ハワイ",
-  meeting_place: "ハワイ空港",
-  meeting_time: "13:00",
-  content: "ハワイの綺麗な海を一緒に眺めましょう！",
-  plan_comment: "ハワイの綺麗な海を一緒に眺めましょう！",
-  user_id: 1)
-end
-
 users = User.all
 user  = users.first
 following = users[2..50]

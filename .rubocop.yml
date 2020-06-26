@@ -9,8 +9,11 @@ AllCops:
     - 'bin/**'
     - 'config/**/*'
     - 'db/**/*'
-    - 'vendor/**/**/*'
     - 'spec/*'
+    - 'lib/**'
+    - 'vendor/**/*'
+    - 'path/ruby'
+    - app/helpers/**/*.rb
 
 Style/TrailingCommaInHashLiteral:
   Enabled: false
@@ -37,4 +40,10 @@ Style/MixinUsage:
   Enabled: false
 
 Style/MutableConstant:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Layout/SpaceInsideHashLiteralBraces:
   Enabled: false

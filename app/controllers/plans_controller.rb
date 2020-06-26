@@ -3,8 +3,8 @@ class PlansController < ApplicationController
   before_action :current_user,   only: [:edit, :update]
 
   def index
-	@search = Plan.ransack(params[:q])
-    @result = @search.result.order(created_at: :desc).paginate(page: params[:page], per_page: 6) 
+    @search = Plan.ransack(params[:q])
+    @result = @search.result.order(created_at: :desc).paginate(page: params[:page], per_page: 6)
   end
 
   def new
@@ -14,14 +14,14 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     @random_plans = Plan.order("RANDOM()").limit(5)
-	  @comment = Comment.new
-	  @user = @plan.user
+    @comment = Comment.new
+    @user = @plan.user
   end
 
   def create
-	@plan = Plan.create(plan_params)
-	if @plan.save
-	  Participant.create(user_id: current_user.id, plan_id: @plan.id)
+    @plan = Plan.create(plan_params)
+    if @plan.save
+      Participant.create(user_id: current_user.id, plan_id: @plan.id)
       flash[:success] = "新規旅行が投稿されました"
       redirect_to @plan
     else
@@ -35,12 +35,12 @@ class PlansController < ApplicationController
 
   def update
     @plan = Plan.find(params[:id])
-	if @plan.update_attributes(plan_params)
-	  flash[:success] = "旅行情報が更新されました"
-	  redirect_to @plan
-	else
-	  render 'edit'
-	end
+    if @plan.update_attributes(plan_params)
+      flash[:success] = "旅行情報が更新されました"
+      redirect_to @plan
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -55,9 +55,15 @@ class PlansController < ApplicationController
     end
   end
 
-	private
+  private
 
-	 def plan_params
-		params.require(:plan).permit(:title, :date, :place, :meeting_place, :meeting_time, :content, :image, :plan_comment).merge(user_id: current_user.id)
-	end
+    def plan_params
+      params.require(:plan).permit(:title,
+                                   :date,
+                                   :place,
+                                   :meeting_place,
+                                   :meeting_time,
+                                   :content, :image,
+                                   :plan_comment).merge(user_id: current_user.id)
+    end
 end

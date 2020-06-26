@@ -90,5 +90,4 @@ RSpec.describe "永続セッション機能", type: :request do
       expect(session[:user_id]).to eq nil
     end
   end
-
 end

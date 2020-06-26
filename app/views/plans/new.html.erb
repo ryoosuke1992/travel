@@ -7,31 +7,31 @@
         <%= render 'shared/error_messages', object: f.object %>
         <div class = 'form-group'>
           <%= f.label :title %>　<span class="input-need">※必須</span>
-          <%= f.text_field :title, class: 'form-control', id: 'plan_title' %>
+          <%= f.text_field :title, placeholder: "【2泊3日】死ぬまでに行きたい世界の絶景！ウユニ塩湖で写真を撮る旅",  class: 'form-control', id: 'plan_title' %>
         </div>
         <div class = 'form-group'>
           <%= f.label :date %> 　<span class="input-need">※必須</span>
-          <%= f.text_field :date, class: 'form-control', id: 'plan-date' %>
+          <%= f.text_field :date, placeholder: "2020年10月1日〜2020年10月4日", class: 'form-control', id: 'plan-date' %>
         </div>
         <div class = 'form-group'>
-          <%= f.label :place %> 　<span class="input-need">※必須</span>
-          <%= f.text_field :place, class: 'form-control', id: 'plan-place' %>
+          <%= f.label :place %> (国名)　<span class="input-need">※必須</span>
+          <%= f.text_field :place, placeholder: "ボリビア", class: 'form-control', id: 'plan-place' %>
         </div>
         <div class = 'form-group'>
           <%= f.label :meeting_place %>　<span class="input-need">※必須</span>
-          <%= f.text_field :meeting_place, size: "30x4", class: 'form-control', id: 'plan-meeting-place' %>
+          <%= f.text_field :meeting_place, placeholder: "ボリビア空港3番出口", class: 'form-control', id: 'plan-meeting-place' %>
         </div>
         <div class = 'form-group'>
           <%= f.label :meeting_time %>　<span class="input-need">※必須</span>
-          <%= f.text_field :meeting_time, class: 'form-control', id: 'plan-meeting-time' %>
+          <%= f.text_field :meeting_time,  placeholder: "13:00",　class: 'form-control', id: 'plan-meeting-time' %>
         </div>
 				<div class = 'form-group'>
           <%= f.label :content %>　<span class="input-need">※必須</span>
-          <%= f.text_area :content, class: 'form-control', id: 'plan-content' %>
+          <%= f.text_area :content, placeholder: "現地でどんなことをするか詳しく書いてください。", class: 'form-control', id: 'plan-content' %>
         </div>
         <div class = 'form-group'>
           <%= f.label :plan_comment %> (120文字以内)　<span class="input-need">※必須</span>
-          <%= f.text_field :plan_comment, class: 'form-control', id: 'plan-comment' %>
+          <%= f.text_area :plan_comment, placeholder: "ウユニ塩湖は死ぬまでに行きたい世界の絶景と言われています。いつか行こうではなく、みんなで今行きましょう！", class: 'form-control', id: 'plan-comment' %>
         </div>
         <span class="form-group">
           <%= f.label :image %>　<span class="input-need">※必須</span>
