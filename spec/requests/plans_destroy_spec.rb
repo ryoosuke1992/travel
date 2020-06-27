@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "旅行の削除", type: :request do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
-	let!(:plan) { create(:plan, user: user) }
+  let!(:plan) { create(:plan, user: user) }
 
   context "ログインしていて、自分の旅行を削除する場合" do
     it "処理が成功し、トップページにリダイレクトすること" do
@@ -26,9 +26,9 @@ RSpec.describe "旅行の削除", type: :request do
       expect(response).to have_http_status "302"
       expect(response).to redirect_to root_path
     end
-	end
+  end
 
-	context "ログインしていない場合" do
+  context "ログインしていない場合" do
     it "ログインページへリダイレクトすること" do
       expect {
         delete plan_path(plan)

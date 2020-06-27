@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
     end
 
     it "名前が50文字以内であること" do
-      user = build(:user, name: "a"*  51)
+      user = build(:user, name: "a" * 51)
       user.valid?
       expect(user.errors[:name]).to include("は50文字以内で入力してください")
     end

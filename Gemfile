@@ -19,6 +19,7 @@ gem 'will_paginate',           '3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave',             '1.2.2'
 gem "mini_magick",             '>= 4.9.4'
+gem 'fog-aws',     '2.0.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta2'
@@ -40,7 +41,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'fog', '1.42'
 end
 
 group :test do
