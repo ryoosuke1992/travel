@@ -1,5 +1,5 @@
 <% unless logged_in? %>
-  %= render 'shared/recruit_login' %>
+  <%= render 'shared/recruit_login' %>
 <% end %>
 <header id="gtco-header" class="gtco-cover gtco-cover-md" style="background-image: url(images/travel6.jpg)" role="banner">
   <div class="overlay"></div>
@@ -43,9 +43,12 @@
             <%= link_to((image_tag plan.image.url), plan_path(plan)) %>
           </figure>
           <div class="fh5co-text">
+          <%= link_to plan_path(plan) do %>
             <h2><%= plan.title %></h2>
+          <% end %>
             <p><%= plan.plan_comment %></p>
-            <%= link_to "詳細ページ" , plan_path(plan), class: "btn btn-primary" %>
+            <span class= "float-left"><%= plan.date %></span>
+            <span class="participant-person float-right"><i class="fas fa-user"></i><%= plan.participants.count %></span>
           </div>
         </div>
       <% end %>

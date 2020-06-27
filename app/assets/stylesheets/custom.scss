@@ -259,6 +259,14 @@ a.like, a.unlike {
   text-decoration: none;
 }
 
+.participant-person {
+  color: grey;
+  font-size: 23px;
+  .fas{
+    margin-right: 5px;
+  }
+}
+
 .favorite-image{
   img{
     width: 100%;
@@ -318,6 +326,18 @@ li.new_notification > a > span {
 
 .margin-top-200 {
   margin-top: 200px;
+}
+
+.margin-right-20 {
+  margin-right: 20px;
+}
+
+.float-right{
+  float: right;
+}
+
+.float-left{
+  float: left;
 }
 
 img.gravatar {
@@ -382,4 +402,8 @@ img.gravatar {
 .row-eq-height{
   display: flex;
   flex-wrap: wrap;
+}
+
+.image-popup{
+  padding-bottom: 20px;
 }
