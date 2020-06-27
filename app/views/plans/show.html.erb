@@ -28,6 +28,10 @@
               <td><%= @plan.meeting_time %></td>
             </tr>
             <tr>
+              <th>現在の参加人数</th>
+              <td><%= @plan.participants.count %></td>
+            </tr>
+            <tr>
               <th>旅行内容</th>
               <td><%= @plan.content %></td>
             </tr>
