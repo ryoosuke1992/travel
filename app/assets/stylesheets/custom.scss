@@ -313,7 +313,7 @@ li.new_notification > a > span {
 }
 
 .notification-image img {
-  width: 100%;
+  width: 100%
 }
 
 .notification-message {
@@ -410,4 +410,8 @@ img.gravatar {
 
 .image-popup{
   padding-bottom: 20px;
+}
+
+.text-left p{
+  text-align: left;
 }
