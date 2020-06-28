@@ -4,19 +4,16 @@
   <div>
     <% if notification.variety == 1 %>
       <p><%= notification.created_at.strftime("%Y/%m/%d(%a) %H:%M") %></p>
-      <p class="notification-message">あなたの企画が<%= link_to user.name, user_path(user) %>さんにお気に入り登録されました。</p>
+      <p class="notification-message">あなたの企画(<%= link_to plan.title, plan_path(plan) %>)が<%= link_to user.name, user_path(user) %>さんにお気に入り登録されました。</p>
     <% elsif notification.variety == 2 %>
       <p><%= notification.created_at.strftime("%Y/%m/%d(%a) %H:%M") %></p>
-      <p class="notification-message">あなたの企画に<%= link_to user.name, user_path(user) %>さんがコメントしました。
+      <p class="notification-message">あなたの企画(<%= link_to plan.title, plan_path(plan) %>)に<%= link_to user.name, user_path(user) %>さんがコメントしました。
       「<%= notification.content %>」</p>
     <% end %>
   </div>
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-12 notification-image">
       <%= link_to((image_tag plan.image.url), plan_path(plan), class: 'plan-picture') %>
-    </div>
-    <div class="col-md-7">
-      <p><%= link_to plan.title, plan_path(plan) %></p>
     </div>
   </div>
 </li>

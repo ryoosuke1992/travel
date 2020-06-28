@@ -205,6 +205,7 @@ span.picture {
     font-size: 26px;
     margin-bottom: 0;
     margin-top: 0;
+    text-align: left;
   }
 
   table{
@@ -312,6 +313,10 @@ li.new_notification > a > span {
   }
 }
 
+.notification-image img {
+  width: 100%
+}
+
 .notification-message {
   font-size: 16px;
 }
@@ -406,4 +411,16 @@ img.gravatar {
 
 .image-popup{
   padding-bottom: 20px;
+}
+
+.text-left p{
+  text-align: left;
+}
+
+.fh5co-card-item h2 {
+  text-align: left;
+}
+
+.block {
+  display: block;
 }
